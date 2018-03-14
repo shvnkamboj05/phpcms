@@ -1,0 +1,43 @@
+body{
+
+	background-color:000000; /* dark pink */
+
+}
+.navbar-nav li{
+font-weight: bold;
+/*font-family:'Times New Roman', Times, serif; */
+font-family: Constantina,Georgia,'Nimbus Roman No9 L',serif;
+font-size: 1.2em;
+}
+.Line{
+	margin-top: -21px;
+}
+.col-sm-10{
+
+	background-color: #ffffff; /* white color*/
+}
+#Side_Menu a{
+  
+  color: #0B749D ;  /* light pink */
+}
+
+#Side_Menu .active a{
+  
+  color:#ffffff;    /* white color*/
+  background-color:#d1bcc9; /* dark green */
+  font-weight: bold;
+}
+#Side_Menu a:hover{
+	color:#ffffff; /* white color*/
+  background-color:#1E90FF;  /* blue color*/
+  font-weight: bold;
+  display: block;
+}
+#footer{
+	padding: 10px;
+	border-top: 1px solid black;
+	color: #eeeeee; /* gray color*/
+	background-color: #1B3409; /* black color*/
+	text-align: center;
+}
+
