@@ -21,7 +21,7 @@ require_once("Include/DB.php");?>
 	<head>
 		<title>Blog Page</title>
                 <link rel="stylesheet" href="css/bootstrap.min.css">
-                <script src="js/jquery-2.0.3.min.js"></script>
+                <script src="js/jquery-2.1.0.min.js"></script>
                 <script src="js/bootstrap.min.js"></script>
                 <link rel="stylesheet" href="css/publicstyles.css">
                 <style>
@@ -84,7 +84,7 @@ else{
     
     
     <div class="blogpost thumbnail">
-      <img class="img-responsive img-rounded" src="Upload/<?php echo $DataRow['_assets'];?>">
+      <img class="img-responsive img-rounded" src="Upload/<?php echo $Images;?>">
     
     <div class="caption">
 
@@ -95,7 +95,7 @@ else{
        echo $Post; ?></p>
     </div>
 
-    <a href="fullpost.php?id=<?php echo $Postid ?>"><span class="btn btn-info">Read More &rsaquo;&rsaquo;</span></a>
+    <a href="FullPost.php?id=<?php echo $Postid ?>"><span class="btn btn-info">Read More &rsaquo;&rsaquo;</span></a>
    </div>
 
    <?php } ?>
@@ -145,7 +145,7 @@ else{
                           if(strlen($Datetime)>11){$Date=substr($Datetime, 0,11);}
   ?>  
   <div>
-  <img class="pull-left img-rounded" id="imgpanelAlign" src="upload/<?php echo $Images;?>" width="70" height="70px";>
+  <img class="pull-left img-rounded" id="imgpanelAlign" src="Upload/<?php echo $Images;?>" width="70" height="70px";>
      <a href="FullPost.php?id=<?php echo $Id; ?>"
      <p id="heading" class="margin_left" > <?php echo  htmlentities($Title);?></p>
      </a>
