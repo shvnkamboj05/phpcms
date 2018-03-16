@@ -27,7 +27,7 @@ require_once("Include/DB.php");?>
   </style>
 </head>
 <body id="myPage">
-<?php include "include/header.php"; ?>
+<?php include "Include/header.php"; ?>
 <!--cantainer fluid start from here (website inside between top and footer)-->
 <div class="container">
   <div class="blog-header">
@@ -86,14 +86,14 @@ Your digital mate is a Sydney start up which has has grown from modest beginning
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
     <li class="active"><a href="http://www.yourdigitalmate.com/business-websites/">www.yourdigitalmate.com</a></li>
-    <li><a href="#"></a></li>
+    <li><a href="#">Business / Information Websites</a></li>
     <li><a href="#"></a></li>
   </ul>
 </nav>
 
 
 <!--footer is starting from here -->
-<?php include "include/footer.php"; ?>
+<?php include "Include/footer.php"; ?>
 
 </div>
 

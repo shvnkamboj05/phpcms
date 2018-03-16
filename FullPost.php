@@ -189,14 +189,60 @@ else{
    
   </div> <!--ending of main blog area here-->
   
-  <div class="col-sm-offset-1 col-sm-3" style="background-color: green;"> <!--starting side bar from here-->
-    <h3>this is side area</h3>
-    <p>The require() function takes all the text in a specified file and copies it into the file that uses the include function.
-    If there is any problem in loading a file then
-    the require() function generates a fatal error and halt the execution of the script.
-    So there is no difference in require() and include() except they handle error conditions.
-    It is recommended to use the require() function instead of include(),
-    because scripts should not continue executing if files are missing or misnamed.</p>
+  <div class="col-sm-offset-1 col-sm-3"> <!--starting side bar from here-->
+     <div class="panel">
+      <div class="panel-heading"><h2 class="panel-title">Categories<h2></div>
+      <div class="panel-body">
+        <?php
+        $ViewQuery="SELECT * FROM category ORDER BY _dateTime desc";
+         
+         $Execute=executeQuery($ViewQuery); 
+
+ while ($DataRow = fetchArrayByExecutingQuery($Execute))// exract all data in the form of fetch array
+ {
+      $id = $DataRow['id'];
+      $Category = $DataRow['_name'];
+    ?> 
+    <a href="blog.php?category=<?php $Category; ?>"
+     <span id="heading"><?php echo $Category."<br>" ?></span>
+   </a>
+     <?php } ?>
+    </div>
+      <div class="panel-footer"></div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h2 class="panel-title">Recent Post<h2></div>
+      <div class="panel-body background">
+        
+<?php
+                  
+                   $ViewQuery="SELECT * FROM admin_panal ORDER BY _dateTime desc LIMIT 0,5";
+                   $Execute=executeQuery($ViewQuery); 
+                   
+                 while ($DataRow = fetchArrayByExecutingQuery($Execute)) 
+                         { 
+                          $Id = $DataRow['_id'];
+                          $Title = $DataRow['_title'];
+                          $Datetime = $DataRow['_dateTime'];
+                          $Images = $DataRow['_assets'];
+                          if(strlen($Datetime)>11){$Date=substr($Datetime, 0,11);}
+  ?>  
+  <div>
+  <img class="pull-left imgpanelAlign img-rounded" src="Upload/<?php echo $DataRow['_assets'];?>" width="70" height="70px";>
+     <a href="FullPost.php?id=<?php echo $Id; ?>"
+     <p id="heading" style="margin-left: 20px;"> <?php echo  htmlentities($Title);?></p>
+     </a>
+     <p class="description" style="margin-left: 20px;"> <?php echo  htmlentities($Date);?></p>
+      <hr>
+  </div>
+<?php }  ?>
+
+
+      </div>
+      <div class="panel-footer"></div>
+    </div>
+
   </div> <!--ending of sidebar div here-->
  </div> <!--ending of rows class here-->
 </div> <!--ending of container-fluid here-->

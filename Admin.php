@@ -20,32 +20,39 @@ Step 7: close the Connection
 if(isset($_POST["Submit"]))
 {
 	// retrieve the form data by using the element's name attributes value as key $Categories=$_POST['Category'];
-	$Categories=$_POST['Category'];
+	$Username=$_POST['UserName'];
+  $Password=$_POST['Password'];
+  $Confirmpassword=$_POST['ConfirmPassword'];
 	  $author="shivani";
     //validation start from here
-    if(empty($Categories))
+    if(empty($Username)||empty($Password)||empty($Confirmpassword))
     {
     	$_SESSION['Errormassage'] ="All fields must be filled out";  //display the results
-    	redirect_to("Categories.php");
+    	redirect_to("Admin.php");
     }
-    elseif (strlen($Categories)>99)
+    elseif(strlen($Password)<4)
     {
-    	$_SESSION['Errormassage']="too long name";
-    	redirect_to("Categories.php");
+    	$_SESSION['Errormassage']="Atleast 4 characters are reqiured for password.";
+    	redirect_to("Admin.php");
+    }
+    elseif ($Password!==$Confirmpassword)
+    {
+      $_SESSION['Errormassage']="password/confirm password does not match.";
+      redirect_to("Admin.php");
     }
     else
     {
 			$DateTime = getCurrentDateTime();
-			$Query="INSERT INTO category (_dateTime,_name,_creatorName) VALUES('$DateTime','$Categories','$author')";
+			$Query="INSERT INTO registration(_dateTime,_userName,_Password,_AddedBy) VALUES('$DateTime','$Username','$Password','$author')";
     	if(executeQuery($Query))
     	{
-    		$_SESSION['SuccessMessage']="Categories added sucessfully";
-        	redirect_to("Categories.php");
+    		$_SESSION['SuccessMessage']="Admin added sucessfully";
+        	redirect_to("Admin.php");
         }
         else
         {
-        	$_SESSION['Errormassage']="$Categories not added";
-    		redirect_to("Categories.php");
+        	$_SESSION['Errormassage']="$Admin not added";
+    		redirect_to("Admin.php");
     	}
 
     }
@@ -83,11 +90,11 @@ if(isset($_POST["Submit"]))
         <li><a href="addNewPost.php">
         <span class="glyphicon glyphicon-list-alt"></span>Add New Post</a></li>
 
-        <li class="active"><a href="Categories.php">
+        <li><a href="Categories.php">
         <span class="glyphicon glyphicon-tags"></span>  Categories</a></li>
         <li><a href="EditPost.php">
         <span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
-        <li><a href=#>
+        <li class="active"><a href="Admin.php">
         <span class="glyphicon glyphicon-user"></span> Manage Admin</a></li>
         <li><a href="Comments.php">
         <span class="glyphicon glyphicon-comment"></span> Comments</a></li>
@@ -101,21 +108,28 @@ if(isset($_POST["Submit"]))
 
 <div class=col-sm-10>
 
-      <h1>Manage Categories</h1>
+      <h1>Manage Admin Access</h1>
                 <div><?php echo dangermassage();?>
                 	<?php echo successmessage();?>
                 </div>
 
      <div> <!--form div-->
-              <form action="Categories.php" method="post">
+              <form action="Admin.php" method="post">
               	<fieldset>
               	<div class="form-group">
-              		<label for="categoryname"><span class="fieldInfo">Name:</span></label>
-              		<input class="form-control" type="text" name="Category" id="categoryname" placeholder="Name"/>
+              		<label for="categoryname"><span class="fieldInfo">User Name:</span></label>
+              		<input class="form-control" type="text" name="UserName" id="UserName" placeholder="User Name"/>
                 </div>
-
+                <div class="form-group">
+                  <label for="categoryname"><span class="fieldInfo">Password:</span></label>
+                  <input class="form-control" type="text" name="Password" id="Password" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                  <label for="categoryname"><span class="fieldInfo">Confirm Password:</span></label>
+                  <input class="form-control" type="text" name="ConfirmPassword" id="ConfirmPassword" placeholder="Rewrite same password"/>
+                </div>
                 <br>
-                <input class="btn btn-success btn-block" type="Submit" name="Submit" value="Add New Post">
+                <input class="btn btn-success btn-block" type="Submit" name="Submit" value="Registration">
               	</fieldset>
               	<br>
                </form>
@@ -128,34 +142,38 @@ if(isset($_POST["Submit"]))
 <div class="table-responsive"> <!--class="table-responsive"-->
      <table class="table table-striped table-hover table-condensed"> <!--class="table table-striped table-hover"-->
      	<tr>
-     		<th>Id</th>
-     		<th>Name</th>
-     		<th>Date and Time</th>
-     		<th>Creator Name</th>
+     		<th>Sr NO.</th>
+        <th>Date and Time</th>
+     		<th>Admin Name</th>
+     		<th>Added By</th>
+        <th>Action</th>
      	</tr>
 
 
 
      <?php
- $viewQuery="SELECT * FROM category ORDER BY _dateTime desc"; // display the list of table
+ $viewQuery="SELECT * FROM registration ORDER BY _dateTime desc"; // display the list of table
  $Execute=executeQuery($viewQuery); // running the query for view the data on the browser (category page)
  $Srno=0;
 //Fetch a result row as a numeric array and as an associative array
  while ($DataRow=fetchArrayByExecutingQuery($Execute))// exract all data in the form of fetch array
  {
-        $Id=$DataRow['id'];
+        $Id=$DataRow['_id'];
         $DateTime=$DataRow['_dateTime'];
-        $Name=$DataRow['_name'];
-        $CreatorName=$DataRow['_creatorName'];
+        $username=$DataRow['_userName'];
+        $Addedby=$DataRow['_AddedBy'];
         $Srno++;
 
 ?>
 
     <tr>
-    	<th><?php echo $Srno;?></th>
-    	<th><?php echo $Name;?></th>
-    	<th><?php echo $DateTime;?></th>
-    	<th><?php echo $CreatorName;?></th>
+    	<td><?php echo $Srno;?></td>
+    	s<td><?php echo $DateTime;?></td>
+      <td><?php echo $username;?></td>
+    	<td><?php echo $Addedby;?></td>
+      <td><a href="DeleteAdmin.php?id=<?php echo $Id; ?>">
+    <span class="btn btn-danger">Delete</a></span>
+      </td>
     </tr>
 
 <?php } ?>
@@ -173,6 +191,5 @@ if(isset($_POST["Submit"]))
 </div><!--Ending of Container area-->
 
 <?php include "Include/footer.php"; ?>
-
 	</body>
 </html>

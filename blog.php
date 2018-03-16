@@ -28,6 +28,13 @@ require_once("Include/DB.php");?>
      
  
   
+  #imgpanelAlign{
+     margin-top: -10px;
+     margin-left: 10px;
+  }
+  .margin_left{
+    margin-left: 20px;
+  }
   @media screen and (max-width: 768px) {
     .col-sm-3 {
       text-align: center;
@@ -37,7 +44,7 @@ require_once("Include/DB.php");?>
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<?php include "include/header.php"; ?>
+<?php include "Include/header.php"; ?>
 <!--cantainer fluid start from here (website inside between top and footer)-->
 <div class="container">
   <div class="blog-header">
@@ -77,7 +84,7 @@ else{
     
     
     <div class="blogpost thumbnail">
-      <img class="img-responsive img-rounded" src="Upload/<?php echo $Images;?>">
+      <img class="img-responsive img-rounded" src="Upload/<?php echo $DataRow['_assets'];?>">
     
     <div class="caption">
 
@@ -101,22 +108,63 @@ else{
     <p>Your digital mate is a team of professionals, experienced in creating Responsive Websites, E-Commerce stores, Search engine optimisation (SEO) and Quality Assurance services (Automation). We Believe</p-->
     <div class="panel">
       <div class="panel-heading"><h2 class="panel-title">Categories<h2></div>
-      <div class="panel-body">dummy Content</div>
+      <div class="panel-body background">
+        <?php
+        $ViewQuery="SELECT * FROM category ORDER BY _dateTime desc";
+         
+         $Execute=executeQuery($ViewQuery); 
+
+ while ($DataRow = fetchArrayByExecutingQuery($Execute))// exract all data in the form of fetch array
+ {
+      $id = $DataRow['id'];
+      $Category = $DataRow['_name'];
+    ?> 
+    <a href="blog.php?category=<?php $Category; ?>"
+     <span id="heading"><?php echo $Category."<br>" ?></span>
+   </a>
+     <?php } ?>
+    </div>
       <div class="panel-footer"></div>
     </div>
 
     <div class="panel panel-primary">
       <div class="panel-heading"><h2 class="panel-title">Recent Post<h2></div>
-      <div class="panel-body">dummy Content</div>
+      <div class="panel-body background">
+        
+<?php
+                  
+                   $ViewQuery="SELECT * FROM admin_panal ORDER BY _dateTime desc LIMIT 0,5";
+                   $Execute=executeQuery($ViewQuery); 
+                   
+                 while ($DataRow = fetchArrayByExecutingQuery($Execute)) 
+                         { 
+                          $Id = $DataRow['_id'];
+                          $Title = $DataRow['_title'];
+                          $Datetime = $DataRow['_dateTime'];
+                          $Images = $DataRow['_assets'];
+                          if(strlen($Datetime)>11){$Date=substr($Datetime, 0,11);}
+  ?>  
+  <div>
+  <img class="pull-left img-rounded" id="imgpanelAlign" src="upload/<?php echo $Images;?>" width="70" height="70px";>
+     <a href="FullPost.php?id=<?php echo $Id; ?>"
+     <p id="heading" class="margin_left" > <?php echo  htmlentities($Title);?></p>
+     </a>
+     <p class="description" > <?php echo  htmlentities($Date);?></p>
+      <hr>
+  </div>
+<?php }  ?>
+
+
+      </div>
       <div class="panel-footer"></div>
     </div>
 
-    <div>
+    <!--div>
       <span class="glyphicon glyphicon-signal logo"></span>
     </div><br>
     <div>
       <span class="glyphicon glyphicon-globe logo"></span>
-    </div>
+    </div-->
 
 </div> <!--ending of sidebar div here-->
    
@@ -125,7 +173,7 @@ else{
 </div> <!--ending of container-fluid here-->
 
 <!--footer is starting from here -->
-<?php include "include/footer.php"; ?>
+<?php include "Include/footer.php"; ?>
 
 </div>
 

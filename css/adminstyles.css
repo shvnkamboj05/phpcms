@@ -9,6 +9,27 @@ font-weight: bold;
 font-family: Constantina,Georgia,'Nimbus Roman No9 L',serif;
 font-size: 1.2em;
 }
+.navbar {
+      margin-bottom: 0;
+      background-color: #f4511e;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
 .Line{
 	margin-top: -21px;
 }
@@ -33,11 +54,21 @@ font-size: 1.2em;
   font-weight: bold;
   display: block;
 }
-#footer{
-	padding: 10px;
-	border-top: 1px solid black;
-	color: #eeeeee; /* gray color*/
-	background-color: #1B3409; /* black color*/
-	text-align: center;
+.fieldInfo
+{
+  color:#f4611e;
+  font-family:Bitter,Georgia,'Times New Roman',Times,serif;
+  font-size: 1.2em;
 }
+.bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
 
+ .blog-header {
+    margin: 55px;
+  }

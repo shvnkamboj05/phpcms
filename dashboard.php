@@ -169,7 +169,7 @@ Bootstrap/css
     	}
     	echo $Category;
     	?></td>
-    	<td><img src="upload/<?php echo $Images;?>" width="170" height="50px";></td>
+    	<td><img src="Upload/<?php echo $Images;?>" width="170" height="50px";></td>
         <td>processing</td>
     	<td><a href="EditPost.php?edit=<?php echo $Id?>"><span class="btn btn-warning">
     		Edit 
@@ -201,18 +201,7 @@ Bootstrap/css
 
 </div><!--Ending of Container area-->
 
-<div id="footer">
-
-	<hr><p>Theme By | Shivani Kamboj | &copy;2018-2019 ------ All right reserved.</p> 
-
-	<a style="color: white; text-decoration: none; cursor: pointer;font-weight: bold;" href="http://localhost/PHPCMS/dashboard.php"> 
-
-	<p>This site purpose is to provide the information regarding Art Gallery and shivanikamboj.com have all the rights. no one can allow copyies other than <br> &trade; shivanikamboj.com &trade;  yourdigitalmate.com &trade; hello.com </p></a>
-	<hr>
-	
-</div>
-<!-- This style line will display exact blue line or (what we will take) after the footer -->
-<div style="height: 10px; background: #27AAE1;"></div>
+<?php include "Include/footer.php"; ?>
 	    
 	</body>
 </html>

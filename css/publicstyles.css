@@ -70,6 +70,10 @@ font-size: 1.2em;
 	display: block;
 
 }
+.background
+{
+  background-color: #F6F7F9;
+}
  .jumbotron {
       background-color: #f4511e;
       color: #fff;
@@ -138,4 +142,7 @@ font-size: 1.2em;
   }
   .item span {
       font-style: normal;
+  }
+  .blog-header {
+    margin: 55px;
   }
