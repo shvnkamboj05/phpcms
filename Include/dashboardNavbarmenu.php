@@ -22,12 +22,12 @@
     <!--top menu start from here-->
     <ul class="nav navbar-nav"> 
  
-     <li><a href="http://www.yourdigitalmate.com">www.yourdigitalmate</a></li>
+     <li><a href="http://www.blog.yourdigitalmate.com" target="_blank">Home</a></li>
    </ul>
    <div>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="http://www.yourdigitalmate.com/contact/"><span class="glyphicon glyphicon-user"></span> Contact us</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      
       </ul>
    </div>
   <!--closing of menu from here-->

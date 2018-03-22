@@ -1,7 +1,14 @@
 body{
 
-	background-color:000000; /* dark pink */
+	background-color: #163550;  /* dark */
 
+}
+#footer{
+  padding: 10px;
+  border-top: 1px solid black;
+  color: #eeeeee; /* gray color*/
+  background-color: #211f22; /* black color*/
+  text-align: center;
 }
 .navbar-nav li{
 font-weight: bold;
@@ -39,13 +46,13 @@ font-size: 1.2em;
 }
 #Side_Menu a{
   
-  color: #0B749D ;  /* light pink */
+  color: #ffffff ;  /* light pink */
 }
 
 #Side_Menu .active a{
   
-  color:#ffffff;    /* white color*/
-  background-color:#d1bcc9; /* dark green */
+  color:#f4611e;    /* white color*/
+  background-color:#f7df00; /* dark green */
   font-weight: bold;
 }
 #Side_Menu a:hover{

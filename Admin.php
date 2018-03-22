@@ -68,7 +68,7 @@ if(isset($_POST["Submit"]))
  <style>
 .fieldInfo
 {
-  color:rgb(251,174,44);
+  color:#f4611e;
   font-family:Bitter,Georgia,'Times New Roman',Times,serif;
   font-size: 1.2em;
 }
@@ -76,13 +76,18 @@ if(isset($_POST["Submit"]))
 
 	</head>
 	<body>
+    
+      <?php include "Include/dashboardNavbarmenu.php"; ?>
 
-<div class="container-fluid">
 
+<div class="container-fluid" style="margin-top: -21px;">
+<!--div class="alert alert-success" role="alert" style="width:50%;margin-left: 20px;">
+  <strong>Welcome to admin page!</strong>.
+</div-->
 	<div class="row">
 
 		 <div class="col-sm-2">
-     <h1>Shivani</h1>
+     <h1 class="text-info">Shanaya</h1>
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
@@ -106,9 +111,9 @@ if(isset($_POST["Submit"]))
       </ul>
 		 </div><!--Ending of Side area-->
 
-<div class=col-sm-10>
+<div class=col-sm-10 style="background-color: #F8F8F8;">
 
-      <h1>Manage Admin Access</h1>
+      <h1 class="text-primary">Manage Admin Access</h1>
                 <div><?php echo dangermassage();?>
                 	<?php echo successmessage();?>
                 </div>
@@ -189,7 +194,8 @@ if(isset($_POST["Submit"]))
 
 
 </div><!--Ending of Container area-->
-
-<?php include "Include/footer.php"; ?>
+<footer style="margin-top: -70px;" class="container-fluid bg-4 text-center">
+  <p>Managed By | <a href="https://www.yourdigitalmate.com">www.yourdigitalmate.com</a> | <span style="color:#f4511e">&copy;2018-2019.</span> All right reserved.</p> 
+</footer>
 	</body>
 </html>

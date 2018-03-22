@@ -55,6 +55,13 @@ if(isset($_POST["Submit"]))
 body{
   background-color: #ffffff;
 }
+.customContainer{
+  border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+
+}
+
 </style>
 
 	</head>
@@ -65,42 +72,60 @@ body{
 
 	<div class="row">
 
-		 <!--div class="col-sm-2">
+		 <div class="col-sm-5">
      
-		 </div-->
+		 </div>
 
-<div class="col-sm-offset-4 col-sm-4">
+<div class="col-sm-offset-1 col-sm-4">
 
-      <h2>Welcome Back !</h2>
+      <h2></h2>
       <br>
                 <div><?php echo dangermassage();?>
                 	<?php echo successmessage();?>
                 </div>
 
-     <div> <!--form div-->
+     <div class="customContainer"> <!--form div-->
               <form action="Login.php" method="post">
               	<fieldset>
-              	<div class="form-group">
-                  <label for="categoryname"><span class="fieldInfo">User Name:</span></label>
-                  <div class="input-group input-group-lg">
+      	 <div class="form-group">
+                  <label for="categoryname"><span class="fieldInfo">Your Name:</span></label>
+                  <div class="input-group input-group-sm">
                      <span class="input-group-addon">
                        <span class="glyphicon glyphicon-envelope text-primary"></span>
                      </span>
-              		<input class="form-control" type="text" name="UserName" id="UserName" placeholder="User Name"/>
+              		<input class="form-control" type="text" name="UserName" id="UserName" placeholder="Your Name"/>
                 </div>
-              </div>
-                <div class="form-group">
-                  <label for="categoryname"><span class="fieldInfo">Password:</span></label>
-                  <div class="input-group input-group-lg">
+         </div>
+         <div class="form-group">
+                  <label for="categoryname"><span class="fieldInfo">Email:</span></label>
+                  <div class="input-group input-group-sm">
                      <span class="input-group-addon">
                        <span class="glyphicon glyphicon-lock text-primary"></span>
                      </span>
-                  <input class="form-control" type="text" name="Password" id="Password" placeholder="Password"/>
+                  <input class="form-control" type="email" name="email" id="Password" placeholder="Email"/>
+         </div>
+          <div  class="form-group">
+              <label for="country"><span class="fieldInfo">Country</span></label>
+              <div class="input-group input-group-sm">
+                <!--span class="input-group-addon">
+                      <span class="glyphicon glyphicon-lock text-primary"></span>
+                </span-->
+                <select class="custom-select custom-select-sm" id="inlineFormCustomSelectPref">
+                <option selected>Choose...</option>
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+                </select>
+              </div>
+         </div>
+         <div class="form-group">
+                <label for="subject"><span class="fieldInfo">Subject</span></label>
+                <div class="input-group input-group-sm">
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px">
+                </textarea>
                 </div>
-                <div class="custom-control custom-checkbox mr-sm-2">
-                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
-               </div>
+                
+         </div>
               </div>
                 <br>
                 <input class="btn btn-info btn-lg" type="Submit" name="Submit" value="Login">

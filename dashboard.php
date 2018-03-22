@@ -28,6 +28,7 @@ Bootstrap/css
 <!DOCTYPE>
 <html>
 	<head>
+       <link rel="shortcut icon" type="image/png" href="images/favicon.png" sizes="16x16"/>
 		<title>Welcome Dashboard</title>
                 <link rel="stylesheet" href="css/bootstrap.min.css">
                 <script src="js/jquery-2.0.3.min.js"></script>
@@ -36,56 +37,17 @@ Bootstrap/css
                 
 	</head>
 	<body>
-		<div style="height:10px; background:#27AAE1;"></div> <!--top blue line -->
-<nav class="navbar navbar-inverse" role="navigation"><!-- starting main navbar-->
- <div class="container"> <!-- start container from here-->
-  <div class="navbar-header"> <!-- start navbar header div from here-->
-    <!--toggle menu start from here-->
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse"> 
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button> <!--ending of toggle menu here-->
-    <!--image or place ur website logo here-->
-    <a class="navbar-brand" href="blog.php">
-    <img src="images/dolicharity.jpg" style="width:200;height:30;">
-   </a>
-   <!--ending of website logo -->
-  </div> <!-- ending of navbar header div from here-->
-  <!--id=collapse is id which is using above inside into toggle class of bootstrap-->
-   <div class="collapse navbar-collapse" id="collapse"> 
-    <!--enclose the menu item which we want to be collapsed inside this toggle menu-->
-    <!--top menu start from here-->
-    <ul class="nav navbar-nav"> 
-     <li><a href="#">Home</a></li>
-     <li class="active"><a href="blog.php" target="_blank">Blog</a></li>
-     <li><a href="#">About</a></li>
-     <li><a href="#">Services</a></li>
-     <li><a href="#">Contact us</a></li>
-      <li><a href="#">Features</a></li>
-    </ul>
-    <form method="" action="blog.php" class="navbar-form navbar-right">
-      <div class="form-control">
-      <input text="text" class="form-control" placeholder="Search" name="search">
-     </div>
-     <button text="btn btn-success" name="searchbutton">Go</button>
-    </form>
-  <!--closing of menu from here-->
-   </div> <!--closing of collapse navbar-collapse class of bootstrap-->
- </div> <!-- ending of Container here-->
-</nav><!-- ending of main navbar here-->
-
-<div class="Line" style="height:10px; background:#27AAE1;"></div> <!--after the menu blue line -->
+     
+  <?php include "Include/dashboardNavbarmenu.php"; ?>
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: -21px;">
 	
 	<div class="row">
 
 		 <div class="col-sm-2">
 
-		 <h1>Shivani</h1>
+		 <h1 class="text-info">Shanaya</h1>
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li class="active"><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
@@ -201,7 +163,9 @@ Bootstrap/css
 
 </div><!--Ending of Container area-->
 
-<?php include "Include/footer.php"; ?>
+<footer class="container-fluid bg-4 text-center">
+  <p>Managed By | <a href="https://www.yourdigitalmate.com">www.yourdigitalmate.com</a> | <span style="color:#f4511e">&copy;2018-2019.</span> All right reserved.</p> 
+</footer>
 	    
 	</body>
 </html>

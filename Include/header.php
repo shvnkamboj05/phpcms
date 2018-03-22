@@ -12,7 +12,7 @@
     <!--image or place ur website logo here-->
     <a class="navbar-brand" href="blog.php">
      
-    <img src="images/logo.png" alt=" yourdigitalmate" style="width:50px;height:40px;margin-top:-10px" >
+    <img class="sticky-top" src="images/logo.png" alt=" yourdigitalmate" style="width:50px;height:40px;margin-top:-10px" >
    </a>
    <!--ending of website logo -->
   </div> <!-- ending of navbar header div from here-->
@@ -31,7 +31,7 @@
    <div>
          <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
   </div>
    

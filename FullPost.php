@@ -53,7 +53,7 @@
     <style>
   .fieldInfo
   {
-    color:rgb(251,174,44);
+    color:#f4611e;
     font-family:Bitter,Georgia,'Times New Roman',Times,serif;
     font-size: 1.2em;
   }
@@ -78,9 +78,17 @@
     font-size:1.1em;
     margin-left: 90px;
   }
-  #m-left-date{
-    margin-left: 90px;
+  
+  #shareurComments{
+    font-family:Bitter,Georgia,'Times New Roman',Times,serif;
+    font-size: 1.2em;
   }
+  #imgpanelAlign{
+     margin-top: -10px;
+     margin-left: 10px;
+  }
+
+  
   </style>
   </head>
   <body>
@@ -124,7 +132,7 @@
       
       
       <div class="blogpost thumbnail">
-        <img class="img-responsive img-rounded" src="Upload/<?php echo $Images;?>">
+        <img class="img-responsive img-rounded" id="th_img_id_full" src="Upload/<?php echo $Images;?>">
       <div class="caption">
 
         <h1 id="heading"><?php echo htmlentities($Title)?></h1>
@@ -135,7 +143,8 @@
      </div>
 
      <?php } ?><br>
-     <span class="fieldInfo">Share your comments here!</span><br><br>
+     <span class="text-info" id="shareurComments">Share your comments here!</span>
+     <br><br><br>
      <?php
      $GetFullpostIdforComments=$_GET['id'];
      $query="SELECT * FROM comments WHERE admin_panel_id='$GetFullpostIdforComments' AND _Status='ON' ";
@@ -149,7 +158,7 @@
     <div class="CommentBlock">
       <img id="img-class" class="pull-left" src="images/images.jpeg" width=70px; height=70px;>
         <p class="Comment-info"><?php echo $Name?></p>
-        <p id="m-left-date" class="description"><?php echo $Datetime;?></p>
+        <p class="description"><?php echo $Datetime;?></p>
         <p class="Comment"><?php echo $Comments?></p>
     </div>
           <hr>
@@ -228,12 +237,13 @@
                             if(strlen($Datetime)>11){$Date=substr($Datetime, 0,11);}
     ?>  
     <div>
-    <img class="pull-left imgpanelAlign img-rounded" src="Upload/<?php echo $DataRow['_assets'];?>" width="70" height="70px";>
+    <img class="pull-left img-rounded" id="imgpanelAlign" src="Upload/<?php echo $DataRow['_assets'];?>" width="70" height="70px";>
+    <br>
        <a href="FullPost.php?id=<?php echo $DataRow['_id']; ?>"
        <p id="heading" style="margin-left: 20px;"> <?php echo  htmlentities($Title);?></p>
        </a>
-       <p class="description" style="margin-left: 20px;"> <?php echo  htmlentities($Date);?></p>
-        <hr>
+       <p class="text-muted" style="float: right;margin-right: 49px;margin-top: -11px;"> <?php echo  htmlentities($Date);?></p>
+        <br><hr>
     </div>
   <?php }  ?>
 

@@ -11,7 +11,8 @@
 </div--> <!--ending of footer div here-->
 
 <div id="footer">
-<hr><p>Managed By | yourdigitalmate.com | &copy;2018-2019. All right reserved.</p>
+<hr>
+<p>Managed By | <a href="https://www.yourdigitalmate.com">www.yourdigitalmate.com</a> | <span style="color:#f4511e">&copy;2018-2019.</span> All right reserved.</p> 
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -23,13 +24,16 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <h4>"Our purpose is to provide the information through blog!"<br><span>hellomate@yourdigitalmate.com</span></h4>
+        <h4>"Our purpose is to provide the <span style="color:#f4511e">information</span> through blog!"<br>
+          <a href="#">hellomate@yourdigitalmate.com</a></h4>
       </div>
       <div class="item">
-        <h4>"We should know everything"<br><span>talk over everything </span></h4>
+        <h4>"We should know <span style="color:#f4511e">everything"</span><br>
+          <span>talk over <a href="#">everything </a></span></h4>
       </div>
       <div class="item">
-        <h4>"Sometime we need someone who can tell right or wrong "<br><span>This is the plateform where you can get our blog across to the public effectivitly</span></h4>
+        <h4>"Sometime we need someone who can tell <span style="color:#f4511e">right or wrong</span> "<br>
+          <span>This is the plateform where you can get our <a href="#"> blog </a> across to the public effectivitly</span></h4>
       </div>
     </div>
 

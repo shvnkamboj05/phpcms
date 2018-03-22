@@ -19,29 +19,27 @@ require_once("Include/DB.php");?>
 
 <html>
 	<head>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" sizes="16x16"/>
 		<title>Blog Page</title>
                 <link rel="stylesheet" href="css/bootstrap.min.css">
                 <script src="js/jquery-2.1.0.min.js"></script>
                 <script src="js/bootstrap.min.js"></script>
                 <link rel="stylesheet" href="css/publicstyles.css">
-                <style>
-     
- 
-  
-  #imgpanelAlign{
+<style>
+#imgpanelAlign{
      margin-top: -10px;
      margin-left: 10px;
   }
   .margin_left{
     margin-left: 20px;
   }
-  @media screen and (max-width: 768px) {
+ @media screen and (max-width: 768px) {
     .col-sm-3 {
       text-align: center;
       margin: 25px 0;
     }
 
-  </style>
+</style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 <?php include "Include/header.php"; ?>
@@ -53,8 +51,7 @@ require_once("Include/DB.php");?>
      
     </div>
  <div class="rows" style="margin-top: 20px;"> <!--rows div strat from here-->
- 
-  <div class="col-sm-8"> <!--main blog area div start from here-->
+<div class="col-sm-8"> <!--main blog area div start from here-->
 
 
   
@@ -84,7 +81,7 @@ else{
     
     
     <div class="blogpost thumbnail">
-      <img class="img-responsive img-rounded" src="Upload/<?php echo $Images;?>">
+      <img class="img-responsive img-rounded" id="th_img_id_blog" src="Upload/<?php echo $Images;?>">
     
     <div class="caption">
 
@@ -146,10 +143,11 @@ else{
   ?>  
   <div>
   <img class="pull-left img-rounded" id="imgpanelAlign" src="Upload/<?php echo $Images;?>" width="70" height="70px";>
+  <br>
      <a href="FullPost.php?id=<?php echo $Id; ?>"
      <p id="heading" class="margin_left" > <?php echo  htmlentities($Title);?></p>
      </a>
-     <p class="description" > <?php echo  htmlentities($Date);?></p>
+     <p class="text-muted" style="float: right;margin-right: 49px;margin-top: -11px;"> <?php echo  htmlentities($Date);?></p>
       <hr>
   </div>
 <?php }  ?>

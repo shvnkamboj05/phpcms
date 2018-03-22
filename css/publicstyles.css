@@ -1,3 +1,4 @@
+
 .navbar-nav li{
 font-weight: bold;
 /*font-family:'Times New Roman', Times, serif; */
@@ -77,7 +78,7 @@ font-size: 1.2em;
  .jumbotron {
       background-color: #f4511e;
       color: #fff;
-      padding: 100px 25px;
+      padding: 40px 25px;
   }
   
  .logo-small {
@@ -144,5 +145,14 @@ font-size: 1.2em;
       font-style: normal;
   }
   .blog-header {
-    margin: 55px;
+    margin: 10px;
+    margin-left:16px;
+  }
+  #th_img_id_blog{
+    width:100%;
+    height:5  0%;
+  }
+  #th_img_id_full{
+    width:100%;
+    height:50%;
   }

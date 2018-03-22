@@ -82,14 +82,15 @@ if(isset($_POST["Submit"]))
 
 	</head>
 	<body>
+    <?php include "Include/dashboardNavbarmenu.php"; ?>
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: -21px;">
 
 	<div class="row">
 
 		 <div class="col-sm-2">
 
-		 	<h1>Shivani</h1>
+		 	<h1 class="text-info">Shanaya</h1>
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
@@ -160,7 +161,7 @@ if(isset($_POST["Submit"]))
                 </div>
                 </div>
                 <br>
-                <input class="btn btn-success btn-block" type="Submit" name="Submit" value="Add New Category">
+                <input class="btn btn-success btn-block" type="Submit" name="Submit" value="Add New Post">
               	</fieldset>
               	<br>
                </form>
@@ -196,6 +197,7 @@ if(isset($_POST["Submit"]))
 
 </div><!--Ending of Container area-->
 
-<?php include "Include/footer.php"; ?>
-	</body>
+<footer style="margin-top: -70px;" class="container-fluid bg-4 text-center">
+  <p>Managed By | <a href="https://www.yourdigitalmate.com">www.yourdigitalmate.com</a> | <span style="color:#f4511e">&copy;2018-2019.</span> All right reserved.</p> 
+</footer>	</body>
 </html>

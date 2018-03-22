@@ -83,13 +83,13 @@ if(isset($_POST["Submit"]))
 
 	</head>
 	<body>
-
-<div class="container-fluid">
+   <?php include "Include/dashboardNavbarmenu.php"; ?>
+<div class="container-fluid" style="margin-top: -21px;">
 
 	<div class="row">
 
 		 <div class="col-sm-2">
-  <h1>Shivani</h1>
+   <h1 class="text-info">Shanaya</h1>
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
@@ -102,7 +102,7 @@ if(isset($_POST["Submit"]))
         <span class="glyphicon glyphicon-tags"></span>  Categories</a></li>
         <li class="active"><a href="EditPost.php">
         <span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
-        <li><a href=#>
+        <li><a href="Admin.php">
         <span class="glyphicon glyphicon-user"></span> Manage Admin</a></li>
         <li><a href="Comments.php">
         <span class="glyphicon glyphicon-comment"></span> Comments</a></li>
@@ -217,7 +217,8 @@ if(isset($_POST["Submit"]))
 
 </div><!--Ending of Container area-->
 
-<?php include "Include/footer.php"; ?>
-
+<footer style="margin-top: -70px;" class="container-fluid bg-4 text-center">
+  <p>Managed By | <a href="https://www.yourdigitalmate.com">www.yourdigitalmate.com</a> | <span style="color:#f4511e">&copy;2018-2019.</span> All right reserved.</p> 
+</footer>
 	</body>
 </html>
