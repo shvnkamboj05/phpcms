@@ -25,8 +25,9 @@
       else
       {
         $DateTime = getCurrentDateTime();
+        $author=$_SESSION['Username'];
         $fullpostIDfromURl=$_GET['id'];
-        $Query="INSERT into comments(_dateTime,_Name,_Email,_Comments,_Status,admin_panel_id) VALUES('$DateTime','$Name','$Email','$Comments','OFF','$fullpostIDfromURl')";
+        $Query="INSERT into comments(_dateTime,_Name,_Email,_Comments,_ApprovedBy,_Status,admin_panel_id) VALUES('$DateTime','$Name','$Email','$Comments','$author','OFF','$fullpostIDfromURl')";
         $execute = executeQuery($Query);
         if($execute)
         {

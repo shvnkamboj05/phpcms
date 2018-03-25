@@ -3,6 +3,7 @@ require_once("Include/DB.php");?>
 <?php require_once("Include/session.php");?>
 <?php require_once("Include/functions.php");?>
 <?php require_once("Include/CmsUtil.php");?>
+<?php Confirm_Login(); ?>
 <!DOCTYPE>
 <?php
 /*
@@ -25,7 +26,7 @@ if(isset($_POST["Submit"]))
   $Category=$_POST['category'];
   $addPost=$_POST['post'];
 
-	  $authorName="shivani";
+	  $authorName=$_SESSION['Username'];
     $Image=$_FILES["image"]["name"]; // $_FILES SuperGlobal file for the image
     $Target="Upload/".basename($_FILES["image"]["name"]);
     //validation start from here
@@ -89,8 +90,11 @@ if(isset($_POST["Submit"]))
 	<div class="row">
 
 		 <div class="col-sm-2">
+<?php
 
-		 	<h1 class="text-info">Shanaya</h1>
+$author=$_SESSION['Username'];
+ ?>
+       <h1 class="text-info"><?php echo $author; ?></h1>
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
@@ -102,13 +106,13 @@ if(isset($_POST["Submit"]))
         <span class="glyphicon glyphicon-tags"></span>  Categories</a></li>
         <li><a href="EditPost.php">
         <span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
-        <li><a href=#>
+        <li><a href="Admin.php">
         <span class="glyphicon glyphicon-user"></span> Manage Admin</a></li>
         <li><a href="Comments.php">
         <span class="glyphicon glyphicon-comment"></span> Comments</a></li>
-        <li><a href=#>
+        <li><a href="blog.php">
         <span class="glyphicon glyphicon-equalizer"></span> Live Blog</a></li>
-        <li><a href=#>
+        <li><a href="logout.php">
         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
       </ul>

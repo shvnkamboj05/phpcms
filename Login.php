@@ -2,6 +2,7 @@
 <?php require_once("Include/session.php");?>
 <?php require_once("Include/functions.php");?>
 <?php require_once("Include/CmsUtil.php");?>
+
 <!DOCTYPE>
 <?php
 /*
@@ -32,9 +33,10 @@ if(isset($_POST["Submit"]))
     {
       $Found_Account=loginAttempt($Username,$Password);
      $_SESSION['user_id'] =$Found_Account["_id"];
+      $_SESSION['Username'] =$Found_Account["_userName"];
 			if($Found_Account)
       {
-        $_SESSION['SuccessMessage']="Welcome successfull ";  //display the results
+        $_SESSION['SuccessMessage']="Welcome {$_SESSION['Username']} ";  //display the results
       redirect_to("dashboard.php");
 
       }else{
@@ -95,7 +97,7 @@ body{
                      <span class="input-group-addon">
                        <span class="glyphicon glyphicon-lock text-primary"></span>
                      </span>
-                  <input class="form-control" type="text" name="Password" id="Password" placeholder="Password"/>
+                  <input class="form-control" type="password" name="Password" id="Password" placeholder="Password"/>
                 </div>
                 <div class="custom-control custom-checkbox mr-sm-2">
                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">

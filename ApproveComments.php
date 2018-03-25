@@ -7,8 +7,8 @@ require_once("Include/DB.php");?>
 if(isset($_GET["id"]))
 {
 $GetIdfromURL =$_GET["id"];
-
-$query="Update comments SET _Status='ON' WHERE _id='$GetIdfromURL' ";
+$author=$_SESSION['Username'];
+$query="Update comments SET _Status='ON',_ApprovedBy='$author' WHERE _id='$GetIdfromURL' ";
 $Execute=executeQuery($query);
 if($Execute)
 {

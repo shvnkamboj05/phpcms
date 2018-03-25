@@ -2,6 +2,7 @@
 <?php require_once("Include/functions.php");?>
 <?php //include db file : because of connectivity
 require_once("Include/DB.php");?>
+<?php Confirm_Login(); ?>
 <!-- *********Bootstrap classes***********
 Bootstrap/css
 	<div class="container-fluid"> //Use this container for a full width container, spanning the entire width of your viewport.
@@ -41,13 +42,14 @@ Bootstrap/css
   <?php include "Include/dashboardNavbarmenu.php"; ?>
 
 
+
 <div class="container-fluid" style="margin-top: -21px;">
 	
 	<div class="row">
 
 		 <div class="col-sm-2">
-
-		 <h1 class="text-info">Shanaya</h1>
+      <?php $author=$_SESSION['Username'];?>
+       <h1 class="text-info"><?php echo $author; ?></h1>
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li class="active"><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
@@ -60,13 +62,13 @@ Bootstrap/css
         <span class="glyphicon glyphicon-tags"></span>  Categories</a></li>
         <li><a href="EditPost.php">
         <span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
-        <li><a href=#>
+        <li><a href="Admin.php">
         <span class="glyphicon glyphicon-user"></span> Manage Admin</a></li>
         <li><a href="Comments.php">
         <span class="glyphicon glyphicon-comment"></span> Comments</a></li>
-        <li><a href=#>
+        <li><a href="blog.php">
         <span class="glyphicon glyphicon-equalizer"></span> Live Blog</a></li>
-        <li><a href=#>
+        <li><a href="logout.php">
         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
       </ul>
@@ -132,7 +134,32 @@ Bootstrap/css
     	echo $Category;
     	?></td>
     	<td><img src="Upload/<?php echo $Images;?>" width="170" height="50px";></td>
-        <td>processing</td>
+        <td>
+      <?php 
+            $approvedQuery="SELECT COUNT(*) From comments WHERE admin_panel_id='$Id'";
+            $ExecuteApproved=executeQuery($approvedQuery);
+            $rowsApproved=fetchArrayByExecutingQuery($ExecuteApproved);
+            $totalApproved= array_shift($rowsApproved);     //need to convert array into
+            if($totalApproved>0){
+            ?>  
+            <span class="label pull-right label-success">
+            <?php echo $totalApproved;?>  </span>
+            <?php } ?>
+
+<?php 
+            $UnapprovedQuery="SELECT COUNT(*) From comments WHERE admin_panel_id='$Id'";
+            $ExecuteUnApproved=executeQuery($UnapprovedQuery);
+            $rowsUnApproved=fetchArrayByExecutingQuery($ExecuteUnApproved);
+            $totalUnApproved= array_shift($rowsUnApproved);     //need to convert array into
+            if($totalUnApproved>0){
+            ?>  
+            <span class="label pull-left label-warning">
+            <?php echo $totalUnApproved;?>  </span>
+            <?php } ?>
+
+
+
+     </td>
     	<td><a href="EditPost.php?edit=<?php echo $Id?>"><span class="btn btn-warning">
     		Edit 
          </a>

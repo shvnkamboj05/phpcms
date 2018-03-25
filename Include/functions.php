@@ -17,4 +17,20 @@ function loginAttempt($username,$password)
     	return null;
     }
 }
+
+function Login()
+{
+  if(isset($_SESSION['user_id']))
+    {
+      return true;
+    }
+}
+function Confirm_Login()
+{
+  if(!Login()){
+
+ $_SESSION['Errormassage'] ="Login required!";
+    redirect_to("Login.php");
+    }
+}
 ?>

@@ -2,6 +2,7 @@
 <?php require_once("Include/functions.php");?>
 <?php //include db file : because of connectivity
 require_once("Include/DB.php");?>
+<?php Confirm_Login(); ?>
 <!-- *********Bootstrap classes***********
 Bootstrap/css
 	<div class="container-fluid"> //Use this container for a full width container, spanning the entire width of your viewport.
@@ -47,14 +48,17 @@ Bootstrap/css
 	<div class="row">
 
 		 <div class="col-sm-2">
+<?php
 
-		 	 <h1 class="text-info">Shanaya</h1>
+$author=$_SESSION['Username'];
+ ?>
+		 	 <h1 class="text-info"><?php echo $author; ?></h1>
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
 
         <li><a href="addNewPost.php">
-        <span class="glyphicon glyphicon-list-alt"></span> Add New Post></a></li>
+        <span class="glyphicon glyphicon-list-alt"></span> Add New Post</a></li>
 
         <li><a href="Categories.php">
         <span class="glyphicon glyphicon-tags"></span>  Categories</a></li>
@@ -64,9 +68,9 @@ Bootstrap/css
         <span class="glyphicon glyphicon-user"></span> Manage Admin</a></li>
         <li class="active"><a href="Comments.php">
         <span class="glyphicon glyphicon-comment"></span> Comments</a></li>
-        <li><a href=#>
+        <li><a href="blog.php">
         <span class="glyphicon glyphicon-equalizer"></span> Live Blog</a></li>
-        <li><a href=#>
+        <li><a href="logout.php">
         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
       </ul>
@@ -106,17 +110,19 @@ Bootstrap/css
                       if(strlen($DatetimeofComments)>3){$DTc=substr($DatetimeofComments, 0,3)."..";}
                       if(strlen($PersonComment)>18){$PC=substr($PersonComment, 0,18);}
              ?>     
-         
-        <tr>
+         <tr>
+    
       <td class="person-info"><?php echo htmlentities($Srno);?></td>
       <td class="person-info"><?php echo htmlentities($PN);?></td>
       <td class="person-info"><?php echo htmlentities($DTc);?></td>
+
       <td class="person-info"><?php  echo htmlentities($PC);?></td>
+      
       <td><a href="ApproveComments.php?id=<?php echo $CommentId; ?>"><span class="btn btn-success">Approve</span></a></td>
       <td><a href="DeleteComments.php?id=<?php echo $CommentId;?>"><span class="btn btn-danger">Delete</span></a></td>
       <td><a href="FullPost.php?id=<?php echo $CommentedPostId; ?>" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>
-      
-        </tr>
+    </tr>
+       
 <?php } ?>
           </table>
  
@@ -146,6 +152,7 @@ Bootstrap/css
                           $PersonName = $DataRow['_Name'];
                           $DatetimeofComments = $DataRow['_dateTime'];
                           $PersonComment = $DataRow['_Comments'];
+                          $ApprovedBy = $DataRow['_ApprovedBy'];
                           $CommentedPostId = $DataRow['admin_panel_id'];
                           $Srno++;
                           if(strlen($PersonName)>3){ $PN=substr($PersonName,0,3).".."; }
@@ -160,7 +167,7 @@ Bootstrap/css
       <td class="person-info"><?php echo htmlentities($DTc);?></td>
 
       <td class="person-info"><?php  echo htmlentities($PC);?></td>
-      <td class="person-info"><?php echo $Admin;?></td>
+      <td class="person-info"><?php echo htmlentities($ApprovedBy);?></td>
       <td><a href="DisApproveComments.php?id=<?php echo $CommentId; ?>"><span class="btn btn-warning">Dis-Approve</span></a></td>
       <td><a href="DeleteComments.php?id=<?php echo $CommentId;?>"><span class="btn btn-danger">Delete</span></a></td>
       <td><a href="FullPost.php?id=<?php echo $CommentedPostId; ?>" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>

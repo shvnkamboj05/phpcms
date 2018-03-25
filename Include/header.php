@@ -22,7 +22,7 @@
     <!--top menu start from here-->
     <ul class="nav navbar-nav"> 
      <!--li><a href="#">Home</a></li-->
-     <li class="active"><a href="#">Blog</a></li>
+     <li class="active"><a href="blog.php">Blog</a></li>
      <li><a href="http://www.yourdigitalmate.com">About</a></li>
      <!--li><a href="#">Services</a></li-->
      <li><a href="http://www.yourdigitalmate.com/contact/">Contact us</a></li>

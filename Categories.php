@@ -2,6 +2,7 @@
 <?php require_once("Include/session.php");?>
 <?php require_once("Include/functions.php");?>
 <?php require_once("Include/CmsUtil.php");?>
+<?php Confirm_Login(); ?>
 <!DOCTYPE>
 <?php
 /*
@@ -21,7 +22,7 @@ if(isset($_POST["Submit"]))
 {
 	// retrieve the form data by using the element's name attributes value as key $Categories=$_POST['Category'];
 	$Categories=$_POST['Category'];
-	  $author="shivani";
+	  $author=$_SESSION['Username'];
     //validation start from here
     if(empty($Categories))
     {
@@ -76,7 +77,9 @@ if(isset($_POST["Submit"]))
 	<div class="row">
 
 		 <div class="col-sm-2">
-     <h1 class="text-info">Shanaya</h1>
+
+     <?php $author=$_SESSION['Username'];?>
+       <h1 class="text-info"><?php echo $author; ?></h1> <!--extract the username-->
         <ul id="Side_Menu" class="nav nav-pills nav-stacked">
         <li><a href=Dashboard.php>
         <span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
@@ -92,9 +95,9 @@ if(isset($_POST["Submit"]))
         <span class="glyphicon glyphicon-user"></span> Manage Admin</a></li>
         <li><a href="Comments.php">
         <span class="glyphicon glyphicon-comment"></span> Comments</a></li>
-        <li><a href=#>
+        <li><a href="blog.php">
         <span class="glyphicon glyphicon-equalizer"></span> Live Blog</a></li>
-        <li><a href=#>
+        <li><a href="logout.php">
         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
       </ul>
